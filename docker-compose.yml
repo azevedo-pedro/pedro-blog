@@ -18,7 +18,7 @@ services:
   web:
     build: .
     ports:
-      - "3000:80"
+      - "4000:80"
     volumes:
       - storage_data:/rails/storage
     environment:
