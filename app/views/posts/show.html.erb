@@ -5,7 +5,7 @@
       <h1 class="post__title"><%= @post.title %></h1>
       <div class="post__meta">
         <time datetime="<%= @post.published_at.iso8601 %>">
-          <%= @post.published_at.strftime("%-d de %B de %Y") %>
+          <%= format_date_pt(@post.published_at) %>
         </time>
         <span class="post__reading-time">· <%= @post.reading_time_minutes %> min de leitura</span>
       </div>
