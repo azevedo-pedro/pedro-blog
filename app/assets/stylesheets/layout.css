@@ -236,26 +236,6 @@ body.light .navbar__actions button#theme-toggle:hover {
   opacity: 0.8;
 }
 
-.post-list__toggle {
-  background: none;
-  border: 1px solid var(--borders);
-  color: var(--text-secondary);
-  padding: 0.5rem;
-  border-radius: 6px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 2.5rem;
-  height: 2.5rem;
-  transition: all 0.2s ease;
-}
-
-.post-list__toggle:hover {
-  background: var(--borders);
-  color: var(--accent);
-}
-
 .post-list__empty {
   color: var(--text-secondary);
   padding: 2rem 0;
@@ -321,25 +301,6 @@ body.light .navbar__actions button#theme-toggle:hover {
   line-height: 1.5;
   color: var(--text-secondary);
   margin: 0;
-}
-
-/* Grid Mode */
-body#grid .post-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1.5rem;
-}
-
-body#grid .post-item__link {
-  border: none;
-  border-radius: 8px;
-  background: var(--surface);
-  padding: 1.5rem;
-  transition: background 0.2s ease;
-}
-
-body#grid .post-item__link:hover {
-  background: var(--borders);
 }
 
 /* Pagination */
