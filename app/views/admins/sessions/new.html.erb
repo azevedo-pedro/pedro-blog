@@ -1,0 +1,36 @@
+<div class="admin-login">
+  <div class="admin-login__card">
+    <h1 class="admin-login__title">Pedro Blog</h1>
+    <h2 class="admin-login__subtitle">Área administrativa</h2>
+
+    <%= form_with url: admin_session_path, html: { class: "admin-form" } do |f| %>
+      <% if alert.present? %>
+        <p class="flash flash--alert"><%= alert %></p>
+      <% end %>
+
+      <div class="admin-form__group">
+        <%= f.label :email, "E-mail" %>
+        <%= f.email_field :email,
+            name: "admin[email]",
+            autofocus: true,
+            autocomplete: "email",
+            class: "admin-form__input" %>
+      </div>
+
+      <div class="admin-form__group">
+        <%= f.label :password, "Senha" %>
+        <%= f.password_field :password,
+            name: "admin[password]",
+            autocomplete: "current-password",
+            class: "admin-form__input" %>
+      </div>
+
+      <div class="admin-form__group admin-form__group--checkbox">
+        <%= f.check_box :remember_me, name: "admin[remember_me]" %>
+        <%= f.label :remember_me, "Lembrar-me" %>
+      </div>
+
+      <%= f.submit "Entrar", class: "btn btn--primary btn--full" %>
+    <% end %>
+  </div>
+</div>

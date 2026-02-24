@@ -1,0 +1,39 @@
+<div class="admin-page">
+  <div class="admin-page__header">
+    <h1><%= @post.title %></h1>
+    <div>
+      <%= link_to "Editar", edit_dashboard_post_path(@post), class: "btn btn--primary" %>
+      <%= link_to "← Todos os posts", dashboard_posts_path, class: "btn" %>
+    </div>
+  </div>
+
+  <div class="admin-post-details">
+    <dl>
+      <dt>Slug</dt><dd><%= @post.slug %></dd>
+      <dt>Categoria</dt><dd><%= @post.category %></dd>
+      <dt>Data</dt><dd><%= @post.published_at.strftime("%d/%m/%Y %H:%M") %></dd>
+      <dt>Status</dt><dd><%= @post.published? ? "Publicado" : "Rascunho" %></dd>
+      <dt>Leitura</dt><dd><%= @post.reading_time_minutes %> min</dd>
+      <dt>Cor</dt><dd><span style="display:inline-block;width:20px;height:20px;background:<%= @post.background_color %>;border-radius:3px;vertical-align:middle;"></span> <%= @post.background_color %></dd>
+    </dl>
+
+    <div class="admin-post-details__description">
+      <strong>Descrição:</strong>
+      <p><%= @post.description %></p>
+    </div>
+
+    <% if @post.thumbnail_url.present? %>
+      <div>
+        <strong>Thumbnail:</strong>
+        <%= image_tag @post.thumbnail_url, style: "max-width:300px;display:block;margin-top:0.5rem;" %>
+      </div>
+    <% end %>
+
+    <div class="admin-post-details__preview">
+      <strong>Preview:</strong>
+      <div class="post__body" style="border:1px solid #ccc;padding:1rem;margin-top:0.5rem;max-height:400px;overflow-y:auto;">
+        <%= @post.body_html.html_safe %>
+      </div>
+    </div>
+  </div>
+</div>

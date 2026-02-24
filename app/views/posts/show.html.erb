@@ -1,0 +1,25 @@
+<article class="post">
+  <header class="post__header" style="background: <%= @post.background_color %>">
+    <div class="post__header-content">
+      <span class="post__category"><%= @post.category %></span>
+      <h1 class="post__title"><%= @post.title %></h1>
+      <div class="post__meta">
+        <time datetime="<%= @post.published_at.iso8601 %>">
+          <%= @post.published_at.strftime("%-d de %B de %Y") %>
+        </time>
+        <span class="post__reading-time">· <%= @post.reading_time_minutes %> min de leitura</span>
+      </div>
+    </div>
+    <% if @post.thumbnail_url.present? %>
+      <div class="post__thumbnail">
+        <%= image_tag @post.thumbnail_url, alt: @post.title, class: "post__thumbnail-img" %>
+      </div>
+    <% end %>
+  </header>
+
+  <div class="post__body">
+    <%= @post.body_html.html_safe %>
+  </div>
+
+  <%= render "shared/prev_next", previous_post: @previous_post, next_post: @next_post %>
+</article>

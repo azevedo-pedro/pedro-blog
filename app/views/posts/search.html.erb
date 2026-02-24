@@ -1,0 +1,23 @@
+<div class="search-page">
+  <div class="search-page__form">
+    <%= form_with url: search_path, method: :get, local: true do |f| %>
+      <div class="search-page__input-group">
+        <%= f.text_field :q, value: @query, placeholder: "Buscar posts...", class: "search-page__input", autofocus: true %>
+        <%= f.submit "Buscar", class: "search-page__button" %>
+      </div>
+    <% end %>
+  </div>
+
+  <% if @query.present? %>
+    <p class="search-page__count">
+      <%= @posts.count %> resultado(s) para "<%= @query %>"
+    </p>
+    <% if @posts.any? %>
+      <% @posts.each do |post| %>
+        <%= render "shared/post_item", post: post %>
+      <% end %>
+    <% else %>
+      <p class="search-page__empty">Nenhum post encontrado.</p>
+    <% end %>
+  <% end %>
+</div>

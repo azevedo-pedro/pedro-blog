@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <title>Admin | Pedro Azevedo</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag :app %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body class="admin-body">
+    <header class="admin-header">
+      <div class="admin-header__brand">
+        <a href="<%= dashboard_root_path %>">Pedro Blog Admin</a>
+      </div>
+      <nav class="admin-header__nav">
+        <%= link_to "Ver Blog", root_path, target: "_blank" %>
+        <% if admin_signed_in? %>
+          <%= link_to "Sair", destroy_admin_session_path, data: { turbo_method: :delete } %>
+        <% end %>
+      </nav>
+    </header>
+
+    <div class="admin-container">
+      <% if notice.present? %>
+        <p class="flash flash--notice"><%= notice %></p>
+      <% end %>
+      <% if alert.present? %>
+        <p class="flash flash--alert"><%= alert %></p>
+      <% end %>
+      <%= yield %>
+    </div>
+  </body>
+</html>

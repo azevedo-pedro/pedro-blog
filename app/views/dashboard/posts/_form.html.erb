@@ -1,0 +1,63 @@
+<%# locals: (post:) %>
+<%= form_with model: [:dashboard, post], class: "admin-form" do |f| %>
+  <% if post.errors.any? %>
+    <div class="admin-form__errors">
+      <h2><%= pluralize(post.errors.count, "erro") %> encontrado(s):</h2>
+      <ul>
+        <% post.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="admin-form__group">
+    <%= f.label :title, "Título" %>
+    <%= f.text_field :title, class: "admin-form__input" %>
+  </div>
+
+  <div class="admin-form__group">
+    <%= f.label :description, "Descrição" %>
+    <%= f.text_area :description, rows: 3, class: "admin-form__input" %>
+  </div>
+
+  <div class="admin-form__row">
+    <div class="admin-form__group">
+      <%= f.label :category, "Categoria" %>
+      <%= f.text_field :category, class: "admin-form__input" %>
+    </div>
+    <div class="admin-form__group">
+      <%= f.label :background_color, "Cor de fundo" %>
+      <%= f.color_field :background_color, class: "admin-form__input admin-form__input--color" %>
+    </div>
+    <div class="admin-form__group">
+      <%= f.label :published_at, "Data de publicação" %>
+      <%= f.datetime_local_field :published_at, class: "admin-form__input" %>
+    </div>
+  </div>
+
+  <div class="admin-form__group">
+    <%= f.label :thumbnail_url, "URL da thumbnail (externo)" %>
+    <%= f.url_field :thumbnail_url, class: "admin-form__input" %>
+  </div>
+
+  <div class="admin-form__group">
+    <%= f.label :thumbnail_image, "Upload de thumbnail" %>
+    <%= f.file_field :thumbnail_image, class: "admin-form__input", accept: "image/*" %>
+  </div>
+
+  <div class="admin-form__group">
+    <%= f.label :body, "Conteúdo (Markdown)" %>
+    <%= f.text_area :body, rows: 25, class: "admin-form__input admin-form__input--code" %>
+  </div>
+
+  <div class="admin-form__group admin-form__group--checkbox">
+    <%= f.check_box :published %>
+    <%= f.label :published, "Publicado" %>
+  </div>
+
+  <div class="admin-form__actions">
+    <%= f.submit post.new_record? ? "Criar Post" : "Atualizar Post", class: "btn btn--primary" %>
+    <%= link_to "Cancelar", dashboard_posts_path, class: "btn" %>
+  </div>
+<% end %>

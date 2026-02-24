@@ -1,0 +1,25 @@
+/* CSS Custom Properties - mirrors Gatsby global.jsx */
+
+body {
+  --borders: #dedede;
+  --texts: #555555;
+  --post-color: #111;
+  --highlight: #1fa1f2;
+  --medium-background: #f0f0f3;
+  --background: #fff;
+  --white: #fff;
+  --black: #222;
+  background-color: var(--background);
+  color: var(--post-color);
+}
+
+body.dark {
+  --borders: #38444d;
+  --texts: #8899a6;
+  --post-color: #fff;
+  --highlight: #1fa1f2;
+  --medium-background: #192734;
+  --background: #16202c;
+  --white: #fff;
+  --black: #222;
+}

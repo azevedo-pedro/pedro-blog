@@ -1,0 +1,7 @@
+<div class="admin-page">
+  <div class="admin-page__header">
+    <h1>Editar Post</h1>
+    <%= link_to "← Voltar", dashboard_post_path(@post) %>
+  </div>
+  <%= render "form", post: @post %>
+</div>

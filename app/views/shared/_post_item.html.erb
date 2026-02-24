@@ -1,0 +1,15 @@
+<%# locals: (post:) %>
+<%= link_to post_path(post), class: "post-item__link" do %>
+  <section class="post-item">
+    <div class="post-item__tag" style="background: <%= post.background_color %>">
+      <%= post.category %>
+    </div>
+    <div class="post-item__info">
+      <time class="post-item__date" datetime="<%= post.published_at.iso8601 %>">
+        <%= post.published_at.strftime("%-d de %B de %Y") %>
+      </time>
+      <h1 class="post-item__title"><%= post.title %></h1>
+      <p class="post-item__description"><%= post.description %></p>
+    </div>
+  </section>
+<% end %>

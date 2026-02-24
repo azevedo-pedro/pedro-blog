@@ -1,0 +1,20 @@
+<%# locals: (previous_post:, next_post:) %>
+<nav class="prev-next">
+  <div class="prev-next__prev">
+    <% if previous_post %>
+      <%= link_to post_path(previous_post), class: "prev-next__link" do %>
+        <span class="prev-next__label">← Post anterior</span>
+        <span class="prev-next__title"><%= previous_post.title %></span>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="prev-next__next">
+    <% if next_post %>
+      <%= link_to post_path(next_post), class: "prev-next__link" do %>
+        <span class="prev-next__label">Próximo post →</span>
+        <span class="prev-next__title"><%= next_post.title %></span>
+      <% end %>
+    <% end %>
+  </div>
+</nav>

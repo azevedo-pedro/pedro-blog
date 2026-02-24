@@ -1,0 +1,24 @@
+<%# locals: (pagy:) %>
+<% if pagy.pages > 1 %>
+  <nav class="pagination" aria-label="Paginação">
+    <div class="pagination__prev">
+      <% if pagy.prev %>
+        <%= link_to pagy_url_for(pagy, pagy.prev), class: "pagination__link" do %>
+          ← Página anterior
+        <% end %>
+      <% end %>
+    </div>
+
+    <span class="pagination__info">
+      Página <%= pagy.page %> de <%= pagy.pages %>
+    </span>
+
+    <div class="pagination__next">
+      <% if pagy.next %>
+        <%= link_to pagy_url_for(pagy, pagy.next), class: "pagination__link" do %>
+          Próxima página →
+        <% end %>
+      <% end %>
+    </div>
+  </nav>
+<% end %>

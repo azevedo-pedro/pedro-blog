@@ -1,0 +1,17 @@
+<div class="post-list">
+  <% if params[:cat].present? %>
+    <div class="post-list__filter">
+      Filtrando por: <strong><%= params[:cat] %></strong>
+      <%= link_to "× limpar", root_path, class: "post-list__clear-filter" %>
+    </div>
+  <% end %>
+
+  <% if @posts.any? %>
+    <% @posts.each do |post| %>
+      <%= render "shared/post_item", post: post %>
+    <% end %>
+    <%= render "shared/pagination", pagy: @pagy %>
+  <% else %>
+    <p class="post-list__empty">Nenhum post encontrado.</p>
+  <% end %>
+</div>
