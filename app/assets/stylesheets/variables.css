@@ -1,25 +1,41 @@
-/* CSS Custom Properties - mirrors Gatsby global.jsx */
+/* CSS Custom Properties - Modern & clean palette */
 
 body {
-  --borders: #dedede;
-  --texts: #555555;
-  --post-color: #111;
-  --highlight: #1fa1f2;
-  --medium-background: #f0f0f3;
-  --background: #fff;
+  /* New color system */
+  --background: #ffffff;
+  --surface: #f5f5f5;
+  --borders: #e5e5e5;
+  --text-primary: #1a1a1a;
+  --text-secondary: #737373;
+  --accent: #2563eb;
+  --accent-hover: #1d4ed8;
+
+  /* Backward compatibility aliases */
+  --post-color: var(--text-primary);
+  --texts: var(--text-secondary);
+  --highlight: var(--accent);
+  --medium-background: var(--surface);
   --white: #fff;
   --black: #222;
+
   background-color: var(--background);
-  color: var(--post-color);
+  color: var(--text-primary);
 }
 
 body.dark {
-  --borders: #38444d;
-  --texts: #8899a6;
-  --post-color: #fff;
-  --highlight: #1fa1f2;
-  --medium-background: #192734;
-  --background: #16202c;
+  --background: #0f0f0f;
+  --surface: #171717;
+  --borders: #262626;
+  --text-primary: #ededed;
+  --text-secondary: #a3a3a3;
+  --accent: #3b82f6;
+  --accent-hover: #60a5fa;
+
+  /* Backward compatibility aliases */
+  --post-color: var(--text-primary);
+  --texts: var(--text-secondary);
+  --highlight: var(--accent);
+  --medium-background: var(--surface);
   --white: #fff;
   --black: #222;
 }

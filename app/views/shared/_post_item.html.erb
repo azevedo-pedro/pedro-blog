@@ -1,15 +1,17 @@
 <%# locals: (post:) %>
 <%= link_to post_path(post), class: "post-item__link" do %>
   <section class="post-item">
-    <div class="post-item__tag" style="background: <%= post.background_color %>">
-      <%= post.category %>
-    </div>
-    <div class="post-item__info">
+    <div class="post-item__meta">
+      <span class="post-item__category" style="background: <%= post.background_color %>">
+        <%= post.category %>
+      </span>
       <time class="post-item__date" datetime="<%= post.published_at.iso8601 %>">
         <%= format_date_pt(post.published_at) %>
       </time>
-      <h1 class="post-item__title"><%= post.title %></h1>
-      <p class="post-item__description"><%= post.description %></p>
+      <span>·</span>
+      <span><%= post.reading_time_minutes %> min</span>
     </div>
+    <h2 class="post-item__title"><%= post.title %></h2>
+    <p class="post-item__description"><%= post.description %></p>
   </section>
 <% end %>

@@ -22,18 +22,16 @@
       })();
     </script>
 
-    <div class="wrapper">
-      <%= render "shared/sidebar" %>
-      <main class="main-content">
-        <% if notice.present? %>
-          <p class="flash flash--notice"><%= notice %></p>
-        <% end %>
-        <% if alert.present? %>
-          <p class="flash flash--alert"><%= alert %></p>
-        <% end %>
-        <%= yield %>
-      </main>
-      <%= render "shared/menubar" %>
-    </div>
+    <%= render "shared/navbar" %>
+    <main class="main-content">
+      <% if notice.present? %>
+        <p class="flash flash--notice"><%= notice %></p>
+      <% end %>
+      <% if alert.present? %>
+        <p class="flash flash--alert"><%= alert %></p>
+      <% end %>
+      <%= yield %>
+    </main>
+    <%= render "shared/footer" %>
   </body>
 </html>

@@ -1,0 +1,33 @@
+<header class="navbar">
+  <div class="navbar__inner">
+    <a href="<%= root_path %>" class="navbar__brand" aria-label="Home">
+      <% if github_profile[:avatar_url] %>
+        <%= image_tag github_profile[:avatar_url],
+              alt:   github_profile[:name],
+              class: "navbar__avatar" %>
+      <% else %>
+        <div class="navbar__avatar">PA</div>
+      <% end %>
+      <span class="navbar__name"><%= github_profile[:name] %></span>
+    </a>
+
+    <nav class="navbar__nav">
+      <%= link_to "Blog", root_path, class: "navbar__nav-link #{'active' if request.path == root_path || request.path.start_with?('/page/')}" %>
+      <%= link_to "Sobre mim", about_path, class: "navbar__nav-link #{'active' if request.path == about_path}" %>
+    </nav>
+
+    <div class="navbar__actions">
+      <%= link_to search_path, class: "navbar__action-link", aria: { label: "Buscar" } do %>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+          <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+        </svg>
+      <% end %>
+
+      <button id="theme-toggle" class="navbar__action-button" aria-label="Alternar tema">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+          <path d="M12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.65 0-3 1.35-3 3s1.35 3 3 3 3-1.35 3-3-1.35-3-3-3zm1-5V1h-2v3h2zm0 17v-3h-2v3h2zm8-9h-3v2h3v-2zM4 11H1v2h3v-2zm12.24-6.59l-1.41-1.42-2.12 2.12 1.41 1.42 2.12-2.12zM9.29 14.88l-2.12 2.12 1.41 1.42 2.12-2.12-1.41-1.42zm8.48 2.12l-2.12-2.12-1.41 1.41 2.12 2.12 1.41-1.41zM7.17 9.11L5.05 7l-1.41 1.41 2.12 2.12 1.41-1.42z"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>

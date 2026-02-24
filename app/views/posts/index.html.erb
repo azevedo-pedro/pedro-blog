@@ -1,8 +1,20 @@
 <div class="post-list">
-  <% if params[:cat].present? %>
-    <div class="post-list__filter">
-      Filtrando por: <strong><%= params[:cat] %></strong>
-      <%= link_to "× limpar", root_path, class: "post-list__clear-filter" %>
+  <% if params[:cat].present? || @posts.any? %>
+    <div class="post-list__header">
+      <% if params[:cat].present? %>
+        <div class="post-list__filter">
+          Filtrando por: <strong><%= params[:cat] %></strong>
+          <%= link_to "× limpar", root_path, class: "post-list__clear-filter" %>
+        </div>
+      <% end %>
+      <button id="display-toggle" class="post-list__toggle" aria-label="Alternar exibição">
+        <svg id="icon-grid" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+          <path d="M3 3h7v7H3zm0 11h7v7H3zm11-11h7v7h-7zm0 11h7v7h-7z"/>
+        </svg>
+        <svg id="icon-list" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" style="display:none">
+          <path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/>
+        </svg>
+      </button>
     </div>
   <% end %>
 
