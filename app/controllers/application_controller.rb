@@ -6,6 +6,9 @@ class ApplicationController < ActionController::Base
   stale_when_importmap_changes
 
   before_action :set_default_meta_tags
+  before_action :set_github_profile
+
+  helper_method :github_profile
 
   private
 
@@ -20,5 +23,13 @@ class ApplicationController < ActionController::Base
         type: "website"
       }
     )
+  end
+
+  def set_github_profile
+    @github_profile = GithubProfileService.call
+  end
+
+  def github_profile
+    @github_profile
   end
 end

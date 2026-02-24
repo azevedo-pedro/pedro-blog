@@ -1,9 +1,15 @@
 <aside class="sidebar" id="sidebar">
   <div class="sidebar__links">
     <%= link_to root_path, class: "sidebar__home-link" do %>
-      <div class="sidebar__avatar">PA</div>
-      <h1 class="sidebar__title">Pedro Azevedo</h1>
-      <h2 class="sidebar__subtitle">Fullstack Developer at Tryvia</h2>
+      <% if github_profile[:avatar_url] %>
+        <%= image_tag github_profile[:avatar_url],
+              alt:   github_profile[:name],
+              class: "sidebar__avatar sidebar__avatar--image" %>
+      <% else %>
+        <div class="sidebar__avatar">PA</div>
+      <% end %>
+      <h1 class="sidebar__title"><%= github_profile[:name] %></h1>
+      <h2 class="sidebar__subtitle">Front-end Developer at <%= github_profile[:company] %></h2>
     <% end %>
   </div>
 

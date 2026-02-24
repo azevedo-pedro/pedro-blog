@@ -74,6 +74,11 @@ body {
   margin-bottom: 1rem;
 }
 
+.sidebar__avatar--image {
+  background: transparent;
+  object-fit: cover;
+}
+
 .sidebar__title {
   font-size: 1.6rem;
   font-weight: 700;
