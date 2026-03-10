@@ -37,7 +37,7 @@ gem "devise", "~> 4.9"
 gem "commonmarker", "~> 2.0"
 gem "rouge", "~> 4.3"
 gem "friendly_id", "~> 5.5"
-gem "pagy", "~> 9.0"
+gem "pagy", "~> 43.3"
 gem "pg_search", "~> 2.3"
 gem "meta-tags", "~> 2.21"
 gem "dotenv-rails", groups: [:development, :test]
