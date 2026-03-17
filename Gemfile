@@ -34,7 +34,7 @@ gem "thruster", require: false
 gem "image_processing", "~> 1.2"
 
 gem "devise", "~> 4.9"
-gem "commonmarker", "~> 2.0"
+gem "commonmarker", "~> 2.7"
 gem "rouge", "~> 4.3"
 gem "friendly_id", "~> 5.5"
 gem "pagy", "~> 9.0"
